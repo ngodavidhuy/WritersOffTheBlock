@@ -52,4 +52,4 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
-  "After you've discovered your new flow of ideas with our app, go out and spread them!"
+  "After you've discovered your new flow of ideas with our app, go out and show them to the rest of the world!"
