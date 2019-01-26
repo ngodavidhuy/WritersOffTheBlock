@@ -18,27 +18,38 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  'Writer's Block something something something defeated'
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Anyone willing to dabble in creative writing.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  The product is a single page application that'll prompt the user about the what and the why of my app and the experience they undergo once they press 'Start'.
+  This app will challenge users to write whatever they feel AND/OR challenge users to respond to any following prompt provided (option). The aim is to just get thoughts out immediately without second guessing yourself, write to write, not to be sitting on the writer's block. If users know their text will be deleted after 20 seconds of idle time, they will be incentivized to continue writing until the option to save their work is available after say... 250 to 500 words? (Threshold hasn't been established just yet...). The benefit to all of this is to free yourself from the mindset of being unable to think of something to write, practice makes perfect and this may, in turn, boosts user's creativity.
 
 ## Problem ##
   > Describe the problem your product solves.
+  My product will conquer writer's block.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  My product will hold users accountable to continue writing or else they risk losing their precious text elegantly...
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "Write off the Writer's Block"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  "Press Start and Write!"
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "I use writer's block something something defeated to get some ideas out each morning and it feels liberating to discover ideas i've never thought to think of"
+
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  "After you've discovered your new flow of ideas with our app, go out and spread them!"
