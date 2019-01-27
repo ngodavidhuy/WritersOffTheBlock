@@ -13,15 +13,14 @@ class App extends Component {
     }
 
     this.state = {
-      stage: 2,
+      stage: 1,
     }
   }
 
   render() {
     let Stage = this.stages[this.state.stage];
     return (
-      <div className="test">
-        <h1>Writer's Off the Block</h1>
+      <div className="main-container">
         <Stage />
       </div>
     );
