@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Stopwatch from './Stopwatch.jsx';
+import axios from 'axios';
+import Stopwatch from './Tracker.jsx';
 const enableTabs = require('../../utilities/enableTabs');
 
 class Write_Session extends Component {
@@ -7,7 +8,6 @@ class Write_Session extends Component {
     super(props);
     this.state = {
       content: '',
-      isCompleted: false,
       prompt: '',
       resetCount: 0
     }
@@ -16,7 +16,16 @@ class Write_Session extends Component {
   }
 
   componentDidMount() {
-    enableTabs();  
+    enableTabs();
+    axios.get('http://localhost:3005/prompts')
+    .then(response => {
+      let prompts = response.data;
+      let randomNumber = Math.floor(Math.random() * prompts.length)
+      this.setState({
+        prompt: prompts[randomNumber].prompt
+      })
+    })
+    .catch(err => console.log(err))
   }
 
   handleContent(e) {
@@ -39,14 +48,14 @@ class Write_Session extends Component {
     return (
       <div className="session-container">
         <div className="session-headers">
-          <h1 className="prompt">[PROMPT GOES HERE]</h1>
-          <Stopwatch 
+          <h1 className="prompt">{`Prompt: ${this.state.prompt}`}</h1>
+        </div>
+        <textarea onChange={this.handleContent} value={this.state.content} />
+        <Stopwatch 
             handleContentReset={this.handleContentReset} 
             resetCount={this.state.resetCount} 
             content={this.state.content}
-            />
-        </div>
-        <textarea onChange={this.handleContent} value={this.state.content} />
+        />
         <div className="button-arrangement">
           <button onClick={handlePageChange}>BACK</button>
           <button onClick={handlePageChange}>SAVE</button>

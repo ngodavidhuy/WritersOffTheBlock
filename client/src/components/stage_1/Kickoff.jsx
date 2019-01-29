@@ -25,8 +25,7 @@ const Kickoff = ({handlePageChange}) => {
         pains to avoid worse pains."</p>
 
         <div className="button-arrangement">
-          <button onClick={handlePageChange}>HISTORY</button>
-          <button onClick={handlePageChange}>NEXT</button>
+          <button onClick={handlePageChange}>BEGIN</button>
         </div>
     </div>
   );

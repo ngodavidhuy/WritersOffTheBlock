@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MembersOnly from './stage_0/MembersOnly.jsx';
 import Kickoff from './stage_1/Kickoff.jsx';
 import Write_Session from './stage_2/Write_Session.jsx';
 import Finish from './stage_3/Finish.jsx';
@@ -7,13 +8,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.stages = {
+      0: MembersOnly,
       1: Kickoff,
       2: Write_Session,
       3: Finish
     }
 
     this.state = {
-      stage: 1,
+      stage: 3,
     }
 
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -21,15 +23,14 @@ class App extends Component {
 
   handlePageChange(e) {
     e.preventDefault();
-
     let action = e.target.innerHTML;
-    if (action === 'BACK') {
+    if (action === 'BACK' || action === 'RESTART') {
       this.setState(prevState => ({
         stage: prevState.stage - 1
       }));
     }
 
-    if (action === 'NEXT'|| action === 'SAVE') {
+    if (action === "LOG IN" || action === 'BEGIN'|| action === 'SAVE') {
       this.setState(prevState => ({
         stage: prevState.stage + 1
       }));
@@ -41,9 +42,9 @@ class App extends Component {
       })
     }
 
-    if (action === 'FRONT') {
+    if (action === 'LOGOUT') {
       this.setState({
-        stage: 1
+        stage: 0
       })
     }
     
