@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     this.state = {
-      stage: 3,
+      stage: 0,
     }
 
     this.handlePageChange = this.handlePageChange.bind(this);
