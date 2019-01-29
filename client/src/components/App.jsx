@@ -13,7 +13,7 @@ class App extends Component {
     }
 
     this.state = {
-      stage: 3,
+      stage: 1,
     }
 
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -29,7 +29,7 @@ class App extends Component {
       }));
     }
 
-    if (action === 'NEXT') {
+    if (action === 'NEXT'|| action === 'SAVE') {
       this.setState(prevState => ({
         stage: prevState.stage + 1
       }));
