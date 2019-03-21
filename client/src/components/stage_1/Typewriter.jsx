@@ -3,7 +3,7 @@ import Typing from 'react-typing-animation';
 
 const Typewriter = () => {
   return (
-    <div className="demo">
+    <div className="typewriter">
       <Typing>
         "Once upon a time..."
         <Typing.Delay ms={200} />

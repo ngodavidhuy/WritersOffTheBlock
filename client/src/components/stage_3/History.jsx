@@ -1,7 +1,7 @@
 import React from 'react';
-import Log from './Log.jsx';
+import Log from './Logs';
 
-const Finish = ({handlePageChange}) => {
+const History = ({handlePageChange}) => {
   return (
     <div className="finish-container">
       <div className="finish-headers">
@@ -16,5 +16,5 @@ const Finish = ({handlePageChange}) => {
   );
 }
 
-export default Finish;
+export default History;
 

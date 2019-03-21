@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import LogEntry from './LogEntry.jsx';
-import LogView from './LogView.jsx';
+import LogEntry from './LogEntry';
+import LogView from './LogView';
 
-class Log extends Component {
+class Logs extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -12,9 +12,8 @@ class Log extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3005/blocks/1')
+    axios.get('http://localhost:3005/block/1')
     .then(response => {
-      console.log(response.data);
       this.setState({
         history: response.data
       })
@@ -44,4 +43,4 @@ class Log extends Component {
   }
 }
 
-export default Log;
+export default Logs;

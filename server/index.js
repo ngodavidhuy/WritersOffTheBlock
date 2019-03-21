@@ -4,8 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const db = require('../db');
-const Blocks = require('./controllers/block_controller');
-const Prompts = require('./controllers/prompt_controller');
 
 const app = express();
 app.use(cors());
@@ -13,13 +11,23 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/dist/')));
 
-app.get('/prompts', Prompts.getOne);
+const routes = require('./routes/index');
+app.use('/', routes);
 
-app.get('/blocks/:userID', Blocks.getAll);
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  let err = new Error('File Not Found');
+  err.status = 404;
+  next(err);
+});
 
-app.post('/blocks/:userID', Blocks.add);
-
-// app.delete('/blocks/:userID/:blockID', Blocks.deleteBlock);
+app.use((err, req, res, next) => {
+  console.log('hi');
+  res.status(err.status || 500);
+  res.send({
+    code: err.code
+  });
+});
 
 const PORT = 3005;
 app.listen(PORT, () => { console.log(`Listening on port ${PORT} because of the internet.`); });

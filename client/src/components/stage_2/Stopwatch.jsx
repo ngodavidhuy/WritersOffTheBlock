@@ -28,7 +28,7 @@ class Stopwatch extends Component {
     this.setState({
       word_count: current_word_count
     }, () => {
-      if (this.state.word_count > 10) {
+      if (this.state.word_count > 500) {
         clearInterval(this.intervalID);
         this.setState({
           sessionFinished: true
@@ -42,7 +42,7 @@ class Stopwatch extends Component {
   handleUpdates() {
     this.checkWordCount(this.props.content);
 
-    if (this.state.elapsedTime / 1000 > 10) {
+    if (this.state.elapsedTime / 1000 > 20) {
       this.setState({
         elapsedTime: 0
       }, () => {
@@ -65,9 +65,8 @@ class Stopwatch extends Component {
 }
 
   render() {
-
-
     let seconds = Math.floor(this.state.elapsedTime / 1000);
+
     return (
       <div className="tracker">
         <div className="idle-timer">
@@ -81,9 +80,9 @@ class Stopwatch extends Component {
           </h1>
         </div>
       </div>
-      
     );
   }
+  
 }
 
 export default Stopwatch;

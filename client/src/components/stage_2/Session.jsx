@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Stopwatch from './Tracker.jsx';
+import Stopwatch from './Stopwatch';
 const enableTabs = require('../../utilities/enableTabs');
 
-class Write_Session extends Component {
+class Session extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +17,7 @@ class Write_Session extends Component {
 
   componentDidMount() {
     enableTabs();
-    axios.get('http://localhost:3005/prompts')
+    axios.get('http://localhost:3005/prompt')
     .then(response => {
       let prompts = response.data;
       let randomNumber = Math.floor(Math.random() * prompts.length)
@@ -65,4 +65,4 @@ class Write_Session extends Component {
   }
 }
 
-export default Write_Session;
+export default Session;
