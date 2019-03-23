@@ -6,7 +6,7 @@ const blockSchema = new mongoose.Schema({
     type: String
   },
   prompt: String,
-  block: String,
+  content: String,
   created_at: {
     type: Date,
     default: Date.now

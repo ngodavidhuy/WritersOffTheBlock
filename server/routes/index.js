@@ -4,11 +4,11 @@ const User = require('../controllers/user_controller');
 const Block = require('../controllers/block_controller');
 const Prompt = require('../controllers/prompt_controller');
 
-router.get('/prompt', Prompt.getOne);
+router.get('/prompt', Prompt.getPrompt);
 
-router.get('/block/:userID', Block.getAll);
+router.get('/block', Block.getUserBlocks);
 
-router.post('/block/:userID', Block.add);
+router.post('/block', Block.postNewBlock);
 
 router.post('/register', User.registerUser);
 
@@ -19,5 +19,3 @@ router.get('/logout', User.LogOut);
 // router.delete('/blocks/:userID/:blockID', Blocks.deleteBlock);
 
 module.exports = router;
-
-

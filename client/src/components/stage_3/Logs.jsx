@@ -12,7 +12,7 @@ class Logs extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3005/block/1')
+    axios.get('http://localhost:3005/block')
     .then(response => {
       this.setState({
         history: response.data

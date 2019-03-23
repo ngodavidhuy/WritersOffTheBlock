@@ -1,6 +1,6 @@
 const Prompts = require('../../db/models/Prompts');
 
-exports.getOne = (req, res) => {
+exports.getPrompt = (req, res) => {
   // your code here
   Prompts.find({}, (err, data) => {
     if (err) {

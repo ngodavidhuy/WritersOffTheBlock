@@ -44,6 +44,7 @@ exports.LogIn = function(req, res) {
       } else {
         console.log('CONTROLLER SUCCESS');
         req.session.userId = user._id;
+        console.log(req.session);
         res.status(201).end();
       }
     });
@@ -51,6 +52,7 @@ exports.LogIn = function(req, res) {
 }
 
 exports.LogOut = function(req, res, next) {
+  console.log(req.session);
   if (req.session) {
     req.session.destroy(function (err) {
       if (err) {

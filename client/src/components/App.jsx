@@ -19,7 +19,7 @@ class App extends Component {
     }
 
     this.state = {
-      stage: 2,
+      stage: 0,
     }
 
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -29,6 +29,10 @@ class App extends Component {
   handlePageChange(e) {
     e.preventDefault();
     let action = e.target.innerHTML;
+
+    if (action === 'HISTORY') this.setState({stage: 3});
+    if (action === 'LOGOUT') this.setState({stage: 0});
+    if (action === 'SIGN UP') this.setState({stage: 4});
 
     if (action === 'BACK' || action === 'RESTART') {
       if (this.state.stage === 4) {
@@ -42,22 +46,11 @@ class App extends Component {
       }
     }
 
-    if (action === 'BEGIN'|| action === 'SAVE') {
+    if (action === 'BEGIN'|| 
+    action === 'SAVE') {
       this.setState(prevState => ({
         stage: prevState.stage + 1
       }));
-    }
-
-    if (action === 'HISTORY') {
-      this.setState({
-        stage: 3
-      })
-    }
-
-    if (action === 'LOGOUT') {
-      this.setState({
-        stage: 0
-      })
     }
   }
 
@@ -65,6 +58,9 @@ class App extends Component {
     if ((from === 'SIGNUP' || from === 'LOGIN') && 
     to === 'INTRODUCTION') {
       this.setState({stage: 1});
+    } else if (from === 'HISTORY' && 
+    to === 'LOGIN') {
+      this.setState({stage: 0});
     }
   }
 

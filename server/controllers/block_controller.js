@@ -1,6 +1,7 @@
 const Blocks = require('../../db/models/Blocks');
+const User = require('../../db/models/Users');
 
-exports.getAll = (req, res) => {
+exports.getUserBlocks = (req, res) => {
   // your code here
   Blocks.find({}, (err, data) => {
     if (err) {
@@ -10,14 +11,24 @@ exports.getAll = (req, res) => {
   });
 }
 
-exports.add = (req, res) => {
+exports.postNewBlock = async (req, res) => {
   // your code here
-  Blocks.insertMany([req.body], (err, results) => {
-    if (err) {
-      res.status(422).send(err)
+  res.status(201).send();
+  let user = await User.findById(req.session.userId);
+  
+  let userPost = {
+    username: user.username,
+    email: user.email,
+    prompt: req.body.prompt,
+    content: req.body.content
+  }
+
+  Blocks.create(userPost, function(error, results) {
+    if (error) {
+      res.status(500).end();
     } else {
-      res.status(201).redirect('/');
+      console.log(results);
+      res.status(201).end();
     }
   });
-
 }

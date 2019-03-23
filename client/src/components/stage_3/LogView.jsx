@@ -18,7 +18,6 @@ class LogView extends Component {
           </li>
         </ul>
       </div>
-      
     );
   }
 }

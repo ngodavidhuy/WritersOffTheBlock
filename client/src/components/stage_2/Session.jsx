@@ -52,7 +52,18 @@ class Session extends Component {
   }
 
   handleBlockPost() {
+    let { content, prompt, canSave } = this.state;
+    if (canSave) {
+      let userData = {
+        prompt,
+        content
+      }
 
+      console.log('POSTING BLOCK');
+      axios.post('http://localhost:3005/block', userData)
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+    }
   }
 
   render () {
@@ -72,8 +83,15 @@ class Session extends Component {
             enableSave={this.enableSave}
         />
         <div className="button-arrangement">
-          <button type="button" onClick={handlePageChange}>BACK</button>
-          <button type="button" className={canSave ? null : 'session-save-disabled'} onClick={canSave ? handlePageChange : null}>SAVE</button>
+          <button type="button" 
+          onClick={handlePageChange}>
+          BACK
+          </button>
+          <button type="button" 
+          className={canSave ? null : 'session-save-disabled'} 
+          onClick={canSave ? this.handleBlockPost : null}>
+          SAVE
+          </button>
         </div>
       </div>
     );
