@@ -62,6 +62,8 @@ class App extends Component {
     to === 'LOGIN') {
       this.setState({stage: 0});
     }
+
+    if (from === 'SESSION' && to === 'HISTORY') this.setState({stage: 3});
   }
 
   render() {

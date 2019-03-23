@@ -61,7 +61,7 @@ class Session extends Component {
 
       console.log('POSTING BLOCK');
       axios.post('http://localhost:3005/block', userData)
-      .then(response => console.log(response))
+      .then(response => this.props.handleRedirect('SESSION', 'HISTORY'))
       .catch(err => console.log(err));
     }
   }

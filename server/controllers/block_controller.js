@@ -1,12 +1,14 @@
 const Blocks = require('../../db/models/Blocks');
 const User = require('../../db/models/Users');
 
-exports.getUserBlocks = (req, res) => {
+exports.getUserBlocks = async (req, res) => {
   // your code here
-  Blocks.find({}, (err, data) => {
+  let user = await User.findById(req.session.userId);
+  Blocks.find({username: user.username}, (err, data) => {
     if (err) {
       res.status(500).send(err);
     }
+    console.log(data);
     res.status(200).json(data);
   });
 }
@@ -27,7 +29,6 @@ exports.postNewBlock = async (req, res) => {
     if (error) {
       res.status(500).end();
     } else {
-      console.log(results);
       res.status(201).end();
     }
   });

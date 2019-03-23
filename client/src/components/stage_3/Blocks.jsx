@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import LogEntry from './LogEntry';
-import LogView from './LogView';
+import BlockEntry from './BlockEntry';
 
-class Logs extends Component {
+class Blocks extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -23,24 +22,23 @@ class Logs extends Component {
 
   render() {
 
-    let logs = this.state.history.map((log, idx) => {
+    let block_entries = this.state.history.map((block, idx) => {
       return (
         <li key={idx}>
-          <LogEntry content={log} />
-          <LogView content={log} />
+          <BlockEntry block={block} entry={idx + 1} />
         </li>
         
       );
     });
 
     return (
-      <div className="finish-logs">
-        <ul className="finish-ul">
-          {logs}
+      <div className="history-blocks">
+        <ul className="history-ul">
+          {block_entries}
         </ul>
       </div>
     );
   }
 }
 
-export default Logs;
+export default Blocks;

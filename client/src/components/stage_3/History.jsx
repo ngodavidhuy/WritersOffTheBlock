@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Logs from './Logs';
+import Blocks from './Blocks';
 
 class History extends Component {
   constructor(props) {
@@ -13,7 +13,6 @@ class History extends Component {
     e.preventDefault();
     axios.get('http://localhost:3005/logout')
     .then(response => {
-      console.log(response);
       this.props.handleRedirect('HISTORY', 'LOGIN');
     })
     .catch(err => console.log(err))
@@ -24,11 +23,11 @@ class History extends Component {
     let { handlePageChange } = this.props;
 
     return (
-      <div className="finish-container">
-        <div className="finish-headers">
+      <div className="history-container">
+        <div>
           <h1>Block Logs</h1>
         </div>
-        <Logs />
+        <Blocks />
         <div className="button-arrangement">
           <button onClick={handlePageChange}>RESTART</button>
           <button onClick={this.handleLogOut}>LOGOUT</button>
