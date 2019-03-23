@@ -23,9 +23,9 @@ class Logs extends Component {
 
   render() {
 
-    let logs = this.state.history.map(log => {
+    let logs = this.state.history.map((log, idx) => {
       return (
-        <li>
+        <li key={idx}>
           <LogEntry content={log} />
           <LogView content={log} />
         </li>

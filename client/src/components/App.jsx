@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter,
-  Route,
-  Switch
-} from 'react-router-dom';
 
 // App Components
 import LogIn from './stage_0/LogIn';
@@ -11,31 +6,6 @@ import SignUp from './stage_0/SignUp';
 import Introduction from './stage_1/Introduction';
 import Session from './stage_2/Session';
 import History from './stage_3/History';
-
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {}
-//   }
-
-//   render() {
-//     return (
-//       <BrowserRouter>
-//         <div className="main-container">
-//           <Switch>
-//             <Route exact path="/" component={LogIn} />
-//             <Route exact path="/signup" component={SignUp} />
-//             <Route path="/introduction" component={Introduction} />
-//             <Route path="/session" component={Session} />
-//             <Route path="/history" component={History} />
-//           </Switch>
-//         </div>
-//       </BrowserRouter>
-//     );
-//   }
-// }
-
-// export default App;
 
 class App extends Component {
   constructor(props) {
@@ -49,10 +19,11 @@ class App extends Component {
     }
 
     this.state = {
-      stage: 4,
+      stage: 2,
     }
 
     this.handlePageChange = this.handlePageChange.bind(this);
+    this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   handlePageChange(e) {
@@ -71,7 +42,7 @@ class App extends Component {
       }
     }
 
-    if (action === "LOG IN" || action === 'BEGIN'|| action === 'SAVE') {
+    if (action === 'BEGIN'|| action === 'SAVE') {
       this.setState(prevState => ({
         stage: prevState.stage + 1
       }));
@@ -88,21 +59,20 @@ class App extends Component {
         stage: 0
       })
     }
+  }
 
-
-    if (action === 'SIGN UP') {
-      this.setState({
-        stage: 4
-      })
+  handleRedirect(from, to) {
+    if ((from === 'SIGNUP' || from === 'LOGIN') && 
+    to === 'INTRODUCTION') {
+      this.setState({stage: 1});
     }
-    
   }
 
   render() {
     let Stage = this.stages[this.state.stage];
     return (
       <div className="main-container">
-        <Stage handlePageChange={this.handlePageChange} />
+        <Stage handlePageChange={this.handlePageChange} handleRedirect={this.handleRedirect} />
       </div>
     );
   }

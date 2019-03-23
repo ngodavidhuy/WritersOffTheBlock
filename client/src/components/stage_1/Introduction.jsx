@@ -20,6 +20,7 @@ const Introduction = ({handlePageChange}) => {
         But there's a twist, if you were to idle for 10 seconds, all of your precious content will be deleted. Therefore, write or flight!</p>
 
         <div className="button-arrangement">
+        <button onClick={handlePageChange}>HISTORY</button>
           <button onClick={handlePageChange}>BEGIN</button>
         </div>
     </div>

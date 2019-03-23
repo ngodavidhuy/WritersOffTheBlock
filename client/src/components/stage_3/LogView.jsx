@@ -11,9 +11,14 @@ class LogView extends Component {
   render() {
     let {block} = this.props.content;
     return(
-      <li className="finish-li">
-          <p>{block}</p>
-      </li>
+      <div>
+        <ul>
+          <li className="finish-li">
+            <p>{block}</p>
+          </li>
+        </ul>
+      </div>
+      
     );
   }
 }

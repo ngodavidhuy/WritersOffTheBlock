@@ -1,17 +1,12 @@
 const mongoose = require('mongoose');
 
 const blockSchema = new mongoose.Schema({
-  userID: {
-    type: Number
-  },
-  log_number: {
-    type: Number,
-    unique: true
-  },
-  block: String,
+  username: String,
   email: {
     type: String
   },
+  prompt: String,
+  block: String,
   created_at: {
     type: Date,
     default: Date.now

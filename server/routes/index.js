@@ -12,6 +12,10 @@ router.post('/block/:userID', Block.add);
 
 router.post('/register', User.registerUser);
 
+router.post('/login', User.LogIn);
+
+router.get('/logout', User.LogOut);
+
 // router.delete('/blocks/:userID/:blockID', Blocks.deleteBlock);
 
 module.exports = router;

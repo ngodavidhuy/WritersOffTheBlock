@@ -29,6 +29,30 @@ let UserSchema = new mongoose.Schema({
   }
 });
 
+UserSchema.statics.authenticate = function(username, password, cb) {
+  User.findOne({username}).exec(function(error, user) {
+    if (error) {
+      console.log('MODEL', ERROR);
+      return cb(error);
+    } else if (!user) {
+      console.log('MODEL, USER ERROR')
+      var err = new Error('User not found.');
+      err.status = 401;
+      return cb(err)
+    }
+
+    bcrypt.compare(password, user.password, function(error, result) {
+      if (result === true) {
+        console.log('BCRYPT, TRUEEE')
+        return cb(null, user);
+      } else {
+        console.log('BRYPT, FALSE')
+        return cb();
+      }
+    });
+  })
+}
+
 UserSchema.pre('save', function(next) {
   let user = this;
   bcrypt.hash(user.password, 10, function(err, hash) {

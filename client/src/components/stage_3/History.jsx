@@ -1,5 +1,5 @@
 import React from 'react';
-import Log from './Logs';
+import Logs from './Logs';
 
 const History = ({handlePageChange}) => {
   return (
@@ -7,7 +7,7 @@ const History = ({handlePageChange}) => {
       <div className="finish-headers">
         <h1>Block Logs</h1>
       </div>
-      <Log />
+      <Logs />
       <div className="button-arrangement">
         <button onClick={handlePageChange}>RESTART</button>
         <button onClick={handlePageChange}>LOGOUT</button>

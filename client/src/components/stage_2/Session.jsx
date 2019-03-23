@@ -9,10 +9,13 @@ class Session extends Component {
     this.state = {
       content: '',
       prompt: '',
-      resetCount: 0
+      resetCount: 0,
+      canSave: false
     }
     this.handleContent = this.handleContent.bind(this);
     this.handleContentReset = this.handleContentReset.bind(this);
+    this.handleBlockPost = this.handleBlockPost.bind(this);
+    this.enableSave = this.enableSave.bind(this);
   }
 
   componentDidMount() {
@@ -42,8 +45,19 @@ class Session extends Component {
     })
   }
 
+  enableSave() {
+    this.setState({
+      canSave: true
+    })
+  }
+
+  handleBlockPost() {
+
+  }
+
   render () {
     const { handlePageChange } = this.props;
+    const { canSave } = this.state;
 
     return (
       <div className="session-container">
@@ -55,10 +69,11 @@ class Session extends Component {
             handleContentReset={this.handleContentReset} 
             resetCount={this.state.resetCount} 
             content={this.state.content}
+            enableSave={this.enableSave}
         />
         <div className="button-arrangement">
-          <button onClick={handlePageChange}>BACK</button>
-          <button onClick={handlePageChange}>SAVE</button>
+          <button type="button" onClick={handlePageChange}>BACK</button>
+          <button type="button" className={canSave ? null : 'session-save-disabled'} onClick={canSave ? handlePageChange : null}>SAVE</button>
         </div>
       </div>
     );

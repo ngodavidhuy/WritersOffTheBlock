@@ -28,11 +28,11 @@ class Stopwatch extends Component {
     this.setState({
       word_count: current_word_count
     }, () => {
-      if (this.state.word_count > 500) {
+      if (this.state.word_count > 250) {
         clearInterval(this.intervalID);
         this.setState({
           sessionFinished: true
-        })
+        }, () => this.props.enableSave())
       }
     })
 
@@ -42,7 +42,7 @@ class Stopwatch extends Component {
   handleUpdates() {
     this.checkWordCount(this.props.content);
 
-    if (this.state.elapsedTime / 1000 > 20) {
+    if (this.state.elapsedTime / 1000 > 10) {
       this.setState({
         elapsedTime: 0
       }, () => {
@@ -71,7 +71,7 @@ class Stopwatch extends Component {
       <div className="tracker">
         <div className="idle-timer">
           <h1>
-            {this.state.sessionFinished ? 'You did it!' : `Idle Time: ${seconds > 20 ? 0 : seconds} seconds`}
+            {this.state.sessionFinished ? 'You did it!' : `Idle Time: ${seconds > 10 ? 0 : seconds} seconds`}
           </h1>
         </div>
         <div  className="word-count">
