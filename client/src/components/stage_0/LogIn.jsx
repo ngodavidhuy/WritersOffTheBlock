@@ -30,7 +30,6 @@ class LogIn extends Component {
           username,
           password
         }
-        console.log(userData);
         axios.post('http://localhost:3005/login', userData)
         .then((response) => handleRedirect('LOGIN', 'INTRODUCTION'))
         .catch((err) => {

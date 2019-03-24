@@ -39,12 +39,9 @@ exports.LogIn = function(req, res) {
   if (req.body.username && req.body.password) {
     User.authenticate(req.body.username, req.body.password, function(error, user) {
       if (error || !user) {
-        console.log('CONTROLLER FAILURE');
         res.status(401).json(`Invalid username or incorrect password.`);
       } else {
-        console.log('CONTROLLER SUCCESS');
         req.session.userId = user._id;
-        console.log(req.session);
         res.status(201).end();
       }
     });
@@ -52,7 +49,6 @@ exports.LogIn = function(req, res) {
 }
 
 exports.LogOut = function(req, res, next) {
-  console.log(req.session);
   if (req.session) {
     req.session.destroy(function (err) {
       if (err) {

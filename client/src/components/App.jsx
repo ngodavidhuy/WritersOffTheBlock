@@ -54,7 +54,7 @@ class App extends Component {
     }
   }
 
-  handleRedirect(from, to) {
+  handleRedirect(from = null, to = null) {
     if ((from === 'SIGNUP' || from === 'LOGIN') && 
     to === 'INTRODUCTION') {
       this.setState({stage: 1});
@@ -62,8 +62,8 @@ class App extends Component {
     to === 'LOGIN') {
       this.setState({stage: 0});
     }
-
     if (from === 'SESSION' && to === 'HISTORY') this.setState({stage: 3});
+    if (!from && !to) this.setState(this.state);
   }
 
   render() {

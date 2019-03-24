@@ -10,12 +10,12 @@ router.get('/block', Block.getUserBlocks);
 
 router.post('/block', Block.postNewBlock);
 
+router.delete('/block', Block.deleteBlock);
+
 router.post('/register', User.registerUser);
 
 router.post('/login', User.LogIn);
 
 router.get('/logout', User.LogOut);
-
-// router.delete('/blocks/:userID/:blockID', Blocks.deleteBlock);
 
 module.exports = router;
