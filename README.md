@@ -1,6 +1,6 @@
-# Project Name
+# Writer's Off The Block
 
-> Writer's Off The Block - Not your typical free writing application, writers who find themselves in writer's block are challenged to spill their thoughts out in order to save their posts or else it may be deleted
+> Not your typical free writing application, writers who find themselves in writer's block are challenged to spill their thoughts out in order to save their posts or else it may be deleted
 
 ## Table of Contents
 
